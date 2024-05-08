@@ -54,5 +54,14 @@ speechBtn.addEventListener("click", e => {
         } else {
             speechBtn.innerText = "Convert To Speech";
         }
+        
+        // Create download button
+        const downloadBtn = document.createElement("a");
+        downloadBtn.textContent = "Download Speech";
+        downloadBtn.setAttribute("href", URL.createObjectURL(new Blob([textarea.value], { type: "text/plain" })));
+        downloadBtn.setAttribute("download", "speech.txt");
+        downloadBtn.style.display = "block";
+        downloadBtn.style.marginTop = "10px";
+        speechBtn.parentNode.appendChild(downloadBtn);
     }
 });
